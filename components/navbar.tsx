@@ -17,7 +17,7 @@ export function Navbar() {
             className=""
           />
           <span className="text-xl font-serif font-bold text-primary hidden sm:inline">
-            Handmade by Roshani
+            Handmade
           </span>
         </Link>
         <div className="flex items-center gap-8">
