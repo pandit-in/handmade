@@ -15,9 +15,6 @@ export const metadata: Metadata = {
   description:
     "Beautiful handmade crochet creations including clothing, accessories, and home decor",
   generator: "v0.app",
-  icons: {
-    icon: "/logo.jpg",
-  },
   openGraph: {
     title: "Handmade by Roshani - Artisan Crochet",
     description:
