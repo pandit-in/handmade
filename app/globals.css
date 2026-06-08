@@ -10,43 +10,69 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-none {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Custom thin minimal scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 9999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--secondary));
+  }
 }
 
 @layer base {
   :root {
-    --background: 30 20% 96%;
-    --foreground: 15 15% 25%;
+    --background: 38 30% 97%; /* Warm Cream #FAF7F2 */
+    --foreground: 27 25% 18%; /* Dark Mocha Brown #3B271B */
     --card: 0 0% 100%;
-    --card-foreground: 15 15% 25%;
+    --card-foreground: 27 25% 18%;
     --popover: 0 0% 100%;
-    --popover-foreground: 15 15% 25%;
-    --primary: 25 45% 45%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 40 35% 70%;
-    --secondary-foreground: 15 15% 25%;
-    --muted: 30 20% 88%;
-    --muted-foreground: 15 15% 55%;
-    --accent: 25 45% 45%;
-    --accent-foreground: 0 0% 100%;
+    --popover-foreground: 27 25% 18%;
+    --primary: 26 35% 44%; /* Light Teak Brown - #976646 (derived from basket wood in logo) */
+    --primary-foreground: 38 30% 97%;
+    --secondary: 8 45% 72%; /* Dusty Rose Pink - #E09B91 */
+    --secondary-foreground: 27 25% 18%;
+    --muted: 38 18% 90%; /* Warm Beige */
+    --muted-foreground: 27 15% 45%; /* Taupe Brown */
+    --accent: 250 22% 67%; /* Lavender - #9B94C2 */
+    --accent-foreground: 38 30% 97%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 30 15% 88%;
-    --input: 30 15% 92%;
-    --ring: 25 45% 45%;
-    --chart-1: 25 45% 50%;
-    --chart-2: 40 35% 65%;
-    --chart-3: 15 15% 45%;
-    --chart-4: 30 20% 70%;
-    --chart-5: 20 30% 60%;
-    --radius: 0.75rem;
-    --sidebar-background: 30 20% 96%;
-    --sidebar-foreground: 15 15% 35%;
-    --sidebar-primary: 25 45% 45%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 40 35% 75%;
-    --sidebar-accent-foreground: 15 15% 25%;
-    --sidebar-border: 30 15% 85%;
-    --sidebar-ring: 25 45% 45%;
+    --border: 38 15% 86%;
+    --input: 38 15% 90%;
+    --ring: 26 35% 44%;
+    --chart-1: 154 22% 38%;
+    --chart-2: 8 45% 72%;
+    --chart-3: 250 22% 67%;
+    --chart-4: 38 25% 50%;
+    --chart-5: 27 25% 30%;
+    --radius: 1rem;
+    --sidebar-background: 38 30% 97%;
+    --sidebar-foreground: 27 20% 30%;
+    --sidebar-primary: 154 22% 38%;
+    --sidebar-primary-foreground: 38 30% 97%;
+    --sidebar-accent: 8 45% 72%;
+    --sidebar-accent-foreground: 27 25% 18%;
+    --sidebar-border: 38 15% 86%;
+    --sidebar-ring: 154 22% 38%;
   }
   .dark {
     --background: 0 0% 3.9%;

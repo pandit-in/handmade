@@ -46,6 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       style={
         {
           "--font-cormorant": cormorant.style.fontFamily,
@@ -54,7 +55,7 @@ export default function RootLayout({
       }
     >
       <meta name="apple-mobile-web-app-title" content="Handmade" />
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

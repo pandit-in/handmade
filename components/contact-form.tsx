@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 
 export function ContactForm() {
@@ -14,6 +14,23 @@ export function ContactForm() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      const item = params.get('item')
+      const custom = params.get('custom')
+      if (item) {
+        setFormData((prev) => ({
+          ...prev,
+          subject: `Custom Inquiry: ${decodeURIComponent(item)}`,
+          message: `Hi Roshani! I am interested in ordering the "${decodeURIComponent(item)}".${
+            custom ? ` My customization request: ${decodeURIComponent(custom)}.` : ''
+          }`,
+        }))
+      }
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
