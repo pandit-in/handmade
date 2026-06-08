@@ -122,8 +122,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0 text-white/70" />
-                <a href="mailto:hello@handmadebyroshani.com" className="hover:text-white transition-colors">
-                  hello@handmadebyroshani.com
+                <a href="mailto:roshanisrathod2007@gmail.com" className="hover:text-white transition-colors">
+                  roshanisrathod2007@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -166,7 +166,7 @@ export function Footer() {
               <MessageSquare className="h-4.5 w-4.5" />
             </a>
             <a
-              href="mailto:hello@handmadebyroshani.com"
+              href="mailto:roshanisrathod2007@gmail.com"
               className="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary hover:scale-110 hover:-translate-y-0.5 transition-all duration-300"
               aria-label="Email"
             >

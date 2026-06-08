@@ -1,0 +1,666 @@
+export interface Product {
+  id: number;
+  name: string;
+  category: string;
+  emoji: string;
+  price: string;
+  originalPrice?: string;
+  description: string;
+  customizable: string;
+  image: string;
+  rating: number;
+  tag?: string;
+  color?: string;
+}
+
+export const products: Product[] = [
+  // Flowers (Bouquets)
+  {
+    id: 1,
+    name: 'Eternal Sunflower Bouquet',
+    category: 'Flowers',
+    emoji: '🌻',
+    price: '₹799',
+    originalPrice: '₹999',
+    description: 'A gorgeous double-stemmed yellow sunflower arrangement with deep green leaves, beautifully wrapped in rustic craft paper and mesh. Never wilts.',
+    customizable: 'Colors of wrapping paper and petals can be customized.',
+    image: '/assets/crocket bouquet sunflower.png',
+    rating: 5,
+    tag: 'Bestseller',
+    color: 'bg-yellow-50'
+  },
+  {
+    id: 2,
+    name: 'Aesthetic Cotton & Rose Mix',
+    category: 'Flowers',
+    emoji: '🌹',
+    price: '₹1,299',
+    originalPrice: '₹1,599',
+    description: 'An elegant statement bouquet blending soft white fluffy cotton pods with deep red and blush pink crochet roses. Perfect for anniversaries.',
+    customizable: 'Number of rosebuds and packaging color.',
+    image: '/assets/crocket bouquet rose.png',
+    rating: 5,
+    tag: 'Most Loved',
+    color: 'bg-red-50'
+  },
+  {
+    id: 3,
+    name: 'Blushing Rose Bouquet',
+    category: 'Flowers',
+    emoji: '🌸',
+    price: '₹1,099',
+    originalPrice: '₹1,399',
+    description: 'A delicate hand-knitted bouquet featuring blush pink roses, cream baby breath stalks, and matching decorative wrapping.',
+    customizable: 'Rose shades (pink, white, red, yellow).',
+    image: '/assets/crocket bouquet rose pink.png',
+    rating: 5,
+    tag: 'Perfect Gift',
+    color: 'bg-pink-50'
+  },
+  {
+    id: 4,
+    name: 'White Lily Elegance Bouquet',
+    category: 'Flowers',
+    emoji: '🪻',
+    price: '₹1,499',
+    originalPrice: '₹1,899',
+    description: 'A premium, large handcrafted bouquet featuring pristine white crochet lilies and lavender sprigs, wrapped in high-quality textured paper.',
+    customizable: 'Lily center details and wrapping style.',
+    image: '/assets/crocket bouquet white.png',
+    rating: 5,
+    tag: 'New',
+    color: 'bg-slate-50'
+  },
+  {
+    id: 5,
+    name: 'Cozy Cotton Bloom Bouquet',
+    category: 'Flowers',
+    emoji: '💐',
+    price: '₹999',
+    originalPrice: '₹1,199',
+    description: 'A cozy rustic bouquet showcasing fluffy cotton pods and soft green foliage. The ultimate minimalist home decoration.',
+    customizable: 'Size of bouquet and wrapping paper tint.',
+    image: '/assets/crocket bouquet 3.png',
+    rating: 5,
+    color: 'bg-teal-50'
+  },
+  {
+    id: 6,
+    name: 'Classic Mixed Crochet Bouquet',
+    category: 'Flowers',
+    emoji: '💐',
+    price: '₹1,199',
+    originalPrice: '₹1,499',
+    description: 'Our signature mixture of tulips, daisies, and lavender sprigs. Colorful, cheerful, and knitted with ultra-soft cotton.',
+    customizable: 'Flower combinations and stem count.',
+    image: '/assets/bouquet/bouquet.png',
+    rating: 5,
+    color: 'bg-amber-50'
+  },
+
+  // Crochet Keychains
+  {
+    id: 7,
+    name: 'Little Bear Crochet Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🧸',
+    price: '₹229',
+    originalPrice: '₹299',
+    description: 'Tiny brown bear with safety eyes and a hand-stitched nose. Extremely cute accessory for backpacks or key rings.',
+    customizable: 'Bear color (brown, beige, cream).',
+    image: '/assets/keychains/cr4.jpeg',
+    rating: 5,
+    tag: 'Trending',
+    color: 'bg-amber-50'
+  },
+  {
+    id: 8,
+    name: 'Mini Strawberry Charm Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🍓',
+    price: '₹149',
+    originalPrice: '₹199',
+    description: 'A plump red strawberry keychain with embroidered seeds and tiny green leaves on top. Perfectly sweet and compact.',
+    customizable: 'Size of keychain.',
+    image: '/assets/keychains/cr5.jpeg',
+    rating: 5,
+    color: 'bg-red-50'
+  },
+  {
+    id: 9,
+    name: 'Sweet Peach Crochet Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🍑',
+    price: '₹179',
+    originalPrice: '₹249',
+    description: 'A squishy pastel peach keychain complete with a green leaf accent. Adds a cozy aesthetic touch to your bag zipper.',
+    customizable: 'Peach blush tone.',
+    image: '/assets/keychains/cr6.jpeg',
+    rating: 5,
+    color: 'bg-orange-50'
+  },
+  {
+    id: 10,
+    name: 'Happy Bee Plush Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🐝',
+    price: '₹249',
+    originalPrice: '₹349',
+    description: 'Cute yellow and black striped bumblebee with soft white wings. Knitted using chenille yarn for extra cuddliness.',
+    customizable: 'Wing style and stripes count.',
+    image: '/assets/keychains/cr7.jpeg',
+    rating: 5,
+    color: 'bg-yellow-100'
+  },
+  {
+    id: 11,
+    name: 'Lucky Clover Crochet Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🍀',
+    price: '₹149',
+    originalPrice: '₹199',
+    description: 'A vibrant four-leaf clover keychain for good luck. Fully handcrafted using double cotton yarn for a durable finish.',
+    customizable: 'Green shade (lime green, forest green).',
+    image: '/assets/keychains/cr8.jpeg',
+    rating: 5,
+    color: 'bg-green-50'
+  },
+  {
+    id: 12,
+    name: 'Chubby Penguin Plush Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🐧',
+    price: '₹249',
+    originalPrice: '₹349',
+    description: 'Knitted using extra-soft plush chenille yarn. This super squishy round penguin keychain has safety eyes and tiny orange feet.',
+    customizable: 'Yarn color (blue-grey, pink, classic navy).',
+    image: '/assets/keychains/cr9.jpeg',
+    rating: 5,
+    color: 'bg-blue-50'
+  },
+  {
+    id: 13,
+    name: 'Cute Octopus Mini Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🐙',
+    price: '₹199',
+    originalPrice: '₹299',
+    description: 'A friendly little octopus with tiny curly tentacles. Perfect for pocket organization or as a subtle zipper pull.',
+    customizable: 'Tentacle count and main color.',
+    image: '/assets/keychains/cr10.jpeg',
+    rating: 5,
+    color: 'bg-purple-50'
+  },
+  {
+    id: 14,
+    name: 'Potted Sunflower Keychain Set',
+    category: 'Crochet Keychains',
+    emoji: '🌻',
+    price: '₹449',
+    originalPrice: '₹549',
+    description: 'A smiling, miniature potted sunflower attached to a sturdy keyring. Stood upright on a green stem, it brings sunshine to your keys.',
+    customizable: 'Petal color shade and pot design.',
+    image: '/assets/keychains/cr12.jpeg',
+    rating: 5,
+    color: 'bg-yellow-50'
+  },
+  {
+    id: 15,
+    name: 'Potted Rose Crochet Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🌹',
+    price: '₹499',
+    originalPrice: '₹599',
+    description: 'A gorgeous single rose in a handmade knit pot. Designed as a romantic tabletop style accessory that goes with you.',
+    customizable: 'Rose color (classic red, peach, cream).',
+    image: '/assets/keychains/cr13.jpeg',
+    rating: 5,
+    color: 'bg-red-50'
+  },
+  {
+    id: 16,
+    name: 'Potted Tulip Keychain Charm',
+    category: 'Crochet Keychains',
+    emoji: '🌷',
+    price: '₹399',
+    originalPrice: '₹499',
+    description: 'A beautiful pastel tulip growing in a little knit brown pot. Bring the spring season with this cozy keychain accessory.',
+    customizable: 'Tulip color (lavender, yellow, pink, white).',
+    image: '/assets/keychains/cr14.jpeg',
+    rating: 5,
+    color: 'bg-pink-50'
+  },
+  {
+    id: 17,
+    name: 'Potted Lily Keychain Ornament',
+    category: 'Crochet Keychains',
+    emoji: '🪴',
+    price: '₹499',
+    originalPrice: '₹599',
+    description: 'An elegant white lily flower inside a tiny crochet base. Captures the serenity and purity of lilies in soft, clean stitches.',
+    customizable: 'Leaf density and pot accent ring color.',
+    image: '/assets/keychains/cr15.jpeg',
+    rating: 5,
+    color: 'bg-slate-50'
+  },
+  {
+    id: 18,
+    name: 'Single Stem Pink Tulip Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🌷',
+    price: '₹229',
+    originalPrice: '₹299',
+    description: 'A single, sleek tulip stem crocheted in soft pink yarn. Ideal for key bags or cute luggage identification tags.',
+    customizable: 'Stem length and leaf count.',
+    image: '/assets/keychains/cr16.jpeg',
+    rating: 5,
+    color: 'bg-pink-50'
+  },
+  {
+    id: 19,
+    name: 'Single Stem Red Rose Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🌹',
+    price: '₹249',
+    originalPrice: '₹329',
+    description: 'A classic symbol of love crafted in textured red cotton yarn. Perfect for expressing affection in a small, pocketable accessory.',
+    customizable: 'Rose petal count and leaf attachment.',
+    image: '/assets/keychains/cr17.jpeg',
+    rating: 5,
+    color: 'bg-red-50'
+  },
+  {
+    id: 20,
+    name: 'Tulip Pastel Keychain Set',
+    category: 'Crochet Keychains',
+    emoji: '🎀',
+    price: '₹249',
+    originalPrice: '₹299',
+    description: 'Set of two matching keychain clips: one featuring a pastel pink tulip and another with a yellow tulip, mounted on silver clasps.',
+    customizable: 'Flower types (can mix daisies, tulips, or roses).',
+    image: '/assets/keychains/cr19.jpeg',
+    rating: 5,
+    color: 'bg-pink-50'
+  },
+  {
+    id: 21,
+    name: 'Daisy Chain Elastic Keychain',
+    category: 'Crochet Keychains',
+    emoji: '👑',
+    price: '₹299',
+    originalPrice: '₹399',
+    description: 'A beautiful mini chain made of linked white daisies. Super soft, lightweight, and gentle, perfect for looping around bags.',
+    customizable: 'Circumference (toddler to adult size).',
+    image: '/assets/keychains/cr20.jpeg',
+    rating: 5,
+    color: 'bg-yellow-50'
+  },
+  {
+    id: 22,
+    name: 'Rosebud Elastic Keychain Charm',
+    category: 'Crochet Keychains',
+    emoji: '💇‍♀️',
+    price: '₹199',
+    originalPrice: '₹249',
+    description: 'A strong elastic key loop detailed with a crown of tiny hand-crocheted pastel pink and cream rosebuds.',
+    customizable: 'Rosebud colors.',
+    image: '/assets/keychains/cr21.jpeg',
+    rating: 5,
+    color: 'bg-pink-50'
+  },
+  {
+    id: 23,
+    name: 'Cute Bow Crochet Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🎀',
+    price: '₹199',
+    originalPrice: '₹249',
+    description: 'An adorable double-layered crochet bow attached to a premium snag-free keychain loop. Adds a cute schoolgirl charm.',
+    customizable: 'Bow color (red, navy, pastel green, white).',
+    image: '/assets/keychains/cr22.jpeg',
+    rating: 5,
+    color: 'bg-blue-50'
+  },
+  {
+    id: 24,
+    name: 'Pastel Blossom Claw Keychain',
+    category: 'Crochet Keychains',
+    emoji: '🎀',
+    price: '₹299',
+    originalPrice: '₹399',
+    description: 'A medium-sized keyring fully wrapped and decorated with mini crocheted sakura blossoms and green leaves.',
+    customizable: 'Sakura colors (cherry pink, pure white).',
+    image: '/assets/keychains/cr23.jpeg',
+    rating: 5,
+    color: 'bg-pink-50'
+  },
+
+  // Hair Accessories
+  {
+    id: 25,
+    name: 'Cute Smiling Avocado Hair Band',
+    category: 'Hair accessories',
+    emoji: '🥑',
+    price: '₹199',
+    originalPrice: '₹299',
+    description: 'Adorable, stuffed mini avocado hair accessory with a friendly embroidered smile and a little brown seed heart.',
+    customizable: 'Available in light green or deep moss green.',
+    image: '/assets/hair/cr1.jpeg',
+    rating: 5,
+    color: 'bg-green-50'
+  },
+  {
+    id: 26,
+    name: 'Floppy Bunny Hair Scrunchie',
+    category: 'Hair accessories',
+    emoji: '🐰',
+    price: '₹249',
+    originalPrice: '₹349',
+    description: 'Super-soft fluffy white bunny with cute floppy pink ears. Handcrafted with plush velvet yarn for a cloud-like texture on your hair.',
+    customizable: 'Body color (white, beige, pink).',
+    image: '/assets/hair/cr2.jpeg',
+    rating: 5,
+    color: 'bg-pink-50'
+  },
+  {
+    id: 27,
+    name: 'Retro Daisy Flower Hair Clip',
+    category: 'Hair accessories',
+    emoji: '🌼',
+    price: '₹149',
+    originalPrice: '₹199',
+    description: 'A simple, classic daisy flower hair clip with a yellow center and white petals. Brings a touch of sunny retro charm.',
+    customizable: 'Petal color (white, pink, light blue).',
+    image: '/assets/hair/cr3.jpeg',
+    rating: 5,
+    color: 'bg-yellow-50'
+  },
+  {
+    id: 28,
+    name: 'Strawberry Crochet Hair Clip',
+    category: 'Hair accessories',
+    emoji: '🍓',
+    price: '₹149',
+    originalPrice: '₹199',
+    description: 'A snap clip decorated with a cute, flat-knitted strawberry charm. Perfect accessory for kids and teens.',
+    customizable: 'Clip type (alligator or snap).',
+    image: '/assets/hair/cr24.jpeg',
+    rating: 5,
+    color: 'bg-red-50'
+  },
+  {
+    id: 29,
+    name: 'Lavender Fields Drawstring Clip',
+    category: 'Hair accessories',
+    emoji: '👛',
+    price: '₹399',
+    originalPrice: '₹499',
+    description: 'A textured knit drawstring mini-pouch clip with a cream base and embroidered lavender stems. Perfect for carrying hairpins.',
+    customizable: 'Base color and drawstring ribbon style.',
+    image: '/assets/hair/cr25.jpeg',
+    rating: 5,
+    color: 'bg-purple-50'
+  },
+  {
+    id: 30,
+    name: 'Cozy Rose Popcorn Scrunchie',
+    category: 'Hair accessories',
+    emoji: '👝',
+    price: '₹599',
+    originalPrice: '₹749',
+    description: 'A spacious hair scrunchie crocheted in a premium popcorn rose stitch for a bubbly texture. Features a high-quality cotton inner core.',
+    customizable: 'Core elastic strength and color pattern.',
+    image: '/assets/hair/cr26.jpeg',
+    rating: 5,
+    color: 'bg-rose-50'
+  },
+  {
+    id: 31,
+    name: 'Water Bottle Mesh Band',
+    category: 'Hair accessories',
+    emoji: '🥤',
+    price: '₹349',
+    originalPrice: '₹449',
+    description: 'A sturdy criss-cross mesh elastic head band. Stretches comfortably to fit all standard sizes.',
+    customizable: 'Band length and color block bands.',
+    image: '/assets/hair/cr27.jpeg',
+    rating: 5,
+    color: 'bg-slate-50'
+  },
+  {
+    id: 32,
+    name: 'Aesthetic Pastel Kiss-Clasp Band',
+    category: 'Hair accessories',
+    emoji: '👛',
+    price: '₹249',
+    originalPrice: '₹349',
+    description: 'A small round hair tie featuring a silver metal kiss-clasp ornament. Perfect for retro hair styles.',
+    customizable: 'Clasp pattern and base yarn colors.',
+    image: '/assets/hair/cr28.jpeg',
+    rating: 5,
+    color: 'bg-amber-50'
+  },
+  {
+    id: 33,
+    name: 'Aesthetic Sunflower Hair Coaster',
+    category: 'Hair accessories',
+    emoji: '🏠',
+    price: '₹499',
+    originalPrice: '₹649',
+    description: 'Bohemian sunflower hair ornament. Thick and highly detailed, safeguarding your hair style with an organic design.',
+    customizable: 'Sold in sets of 2, 4, or 6.',
+    image: '/assets/hair/cr30.jpeg',
+    rating: 5,
+    color: 'bg-yellow-50'
+  },
+  {
+    id: 34,
+    name: 'Boho Dreamcatcher Hair Tie',
+    category: 'Hair accessories',
+    emoji: '🕸️',
+    price: '₹799',
+    originalPrice: '₹999',
+    description: 'A circular web frame hair clip featuring intricate lace crochet patterns at the center, adorned with hanging feathers.',
+    customizable: 'Feather colors (sage green, beige, dusty pink mix).',
+    image: '/assets/hair/cr31.jpeg',
+    rating: 5,
+    color: 'bg-teal-50'
+  },
+  {
+    id: 35,
+    name: 'Aesthetic Checker Hair Rug Set',
+    category: 'Hair accessories',
+    emoji: '☕',
+    price: '₹299',
+    originalPrice: '₹399',
+    description: 'Two rectangle mini hair ties featuring crochet checkerboard patterns and playful fringes. Perfect cozy base for braids.',
+    customizable: 'Checker color combo.',
+    image: '/assets/hair/cr32.jpeg',
+    rating: 5,
+    color: 'bg-amber-50'
+  },
+  {
+    id: 36,
+    name: 'Mini Cactus Hair Pin Companion',
+    category: 'Hair accessories',
+    emoji: '🌵',
+    price: '₹399',
+    originalPrice: '₹499',
+    description: 'A tiny potted saguaro cactus hair pin with a sweet little pink blossom on top. Perfect organic accent.',
+    customizable: 'Cactus style (single barrel or branched).',
+    image: '/assets/hair/cr33.jpeg',
+    rating: 5,
+    color: 'bg-green-50'
+  },
+  {
+    id: 37,
+    name: 'Balloon Wall Clip Decor',
+    category: 'Hair accessories',
+    emoji: '🎈',
+    price: '₹699',
+    originalPrice: '₹899',
+    description: 'A set of three colorful hair clips shaped like mini balloons. Adds a soft, dreamy atmosphere to any hairstyle.',
+    customizable: 'Set of 3 colors of your choice.',
+    image: '/assets/hair/cr34.jpeg',
+    rating: 5,
+    color: 'bg-sky-50'
+  },
+  {
+    id: 38,
+    name: 'Car Hanging Sunflower Hair Bow',
+    category: 'Hair accessories',
+    emoji: '🚗',
+    price: '₹349',
+    originalPrice: '₹449',
+    description: 'A charming sunflower hair bow on an adjustable loop. Perfect for braids, ponytails, or half-up hairstyles.',
+    customizable: 'Lanyard loop length.',
+    image: '/assets/hair/cr35.jpeg',
+    rating: 5,
+    color: 'bg-yellow-50'
+  },
+  {
+    id: 39,
+    name: 'Couple Initial Hair Clip Set',
+    category: 'Hair accessories',
+    emoji: '🎁',
+    price: '₹1,499',
+    originalPrice: '₹1,799',
+    description: 'A beautifully packaged hair clip set containing two custom initial letter clips and a mini red rose ornament.',
+    customizable: 'Initials, lettercard message, and rose color.',
+    image: '/assets/hair/cr36.jpeg',
+    rating: 5,
+    color: 'bg-purple-50'
+  },
+  {
+    id: 40,
+    name: 'Alphabet Block Hair Pins',
+    category: 'Hair accessories',
+    emoji: '🅰️',
+    price: '₹1,299',
+    originalPrice: '₹1,599',
+    description: 'Choose your alphabet! We handcraft a blocky 3D initial letter hair clip in your favorite pastel color.',
+    customizable: 'Alphabet letter (A-Z) and color.',
+    image: '/assets/hair/cr37.jpeg',
+    rating: 5,
+    color: 'bg-orange-50'
+  },
+  {
+    id: 41,
+    name: 'Lavender Tulip Hair Bow set',
+    category: 'Hair accessories',
+    emoji: '🎁',
+    price: '₹1,599',
+    originalPrice: '₹1,999',
+    description: 'A set of hair bows decorated with hand-crocheted lavender stalks and pastel tulips.',
+    customizable: 'Color combinations.',
+    image: '/assets/hair/cr38.jpeg',
+    rating: 5,
+    color: 'bg-red-50'
+  },
+  {
+    id: 42,
+    name: 'Premium Blossom Hair Barrettes',
+    category: 'Hair accessories',
+    emoji: '🌸',
+    price: '₹299',
+    originalPrice: '₹399',
+    description: 'Extra soft, beautiful blossom clips made of premium milk cotton yarn. Secure grip hair alligator barrettes.',
+    customizable: 'Blossom count and base clip type.',
+    image: '/assets/hair/cr39.jpeg',
+    rating: 5,
+    color: 'bg-teal-50'
+  },
+  {
+    id: 43,
+    name: 'Single Stem Sunflower Hair Pin',
+    category: 'Hair accessories',
+    emoji: '🌻',
+    price: '₹249',
+    originalPrice: '₹329',
+    description: 'A joyful single sunflower hair accessory. Features detailed yellow petals surrounding a textured brown seed center.',
+    customizable: 'Center brown shade.',
+    image: '/assets/accessories/cr18.jpeg',
+    rating: 5,
+    color: 'bg-yellow-50'
+  },
+  {
+    id: 44,
+    name: 'Artisan Flower Hair Accessory',
+    category: 'Hair accessories',
+    emoji: '🌸',
+    price: '₹349',
+    originalPrice: '₹449',
+    description: 'Premium handcrafted floral hair slide. Knitted with ultra-fine organic cotton yarn for a sophisticated, sleek look.',
+    customizable: 'Base slide color (gold, silver) and flower mix.',
+    image: '/assets/accessories/cr43.jpeg',
+    rating: 5,
+    color: 'bg-rose-50'
+  },
+
+  // Room Decors
+  {
+    id: 45,
+    name: 'Aesthetic Sunflower Table Coasters',
+    category: 'Room Decors',
+    emoji: '🏠',
+    price: '₹499',
+    originalPrice: '₹649',
+    description: 'Set of four sunflower-shaped coasters. Thick and highly absorbent, safeguarding your tables while adding a bright bohemian aesthetic.',
+    customizable: 'Sold in sets of 2, 4, or 6.',
+    image: '/assets/home/cr40.jpeg',
+    rating: 5,
+    color: 'bg-yellow-50'
+  },
+  {
+    id: 46,
+    name: 'Boho Dreamcatcher Wall Hanging',
+    category: 'Room Decors',
+    emoji: '🕸️',
+    price: '₹799',
+    originalPrice: '₹999',
+    description: 'A circular web frame featuring intricate lace crochet patterns at the center, adorned with hanging crochet feathers and wooden beads.',
+    customizable: 'Feather colors (sage green, beige, dusty pink mix).',
+    image: '/assets/home/cr41.jpeg',
+    rating: 5,
+    color: 'bg-teal-50'
+  },
+
+  // Pouches
+  {
+    id: 47,
+    name: 'Cozy Rose Popcorn Makeup Pouch',
+    category: 'Pouches',
+    emoji: '👝',
+    price: '₹599',
+    originalPrice: '₹749',
+    description: 'A spacious zippered pouch crocheted in a premium popcorn stitch for a bubbly texture. Features a high-quality cotton inner lining.',
+    customizable: 'Zipper color and interior fabric lining pattern.',
+    image: '/assets/pouches/cr42.jpeg',
+    rating: 5,
+    tag: 'Bestseller',
+    color: 'bg-rose-50'
+  },
+
+  // Giftings
+  {
+    id: 48,
+    name: 'Custom Couple Initial Gift Hamper',
+    category: 'Giftings',
+    emoji: '🎁',
+    price: '₹1,499',
+    originalPrice: '₹1,799',
+    description: 'A beautifully packaged premium gifting hamper containing two custom letter keychains (initials of your choice), a mini red rose, and a lettercard.',
+    customizable: 'Initials, lettercard message, and rose color.',
+    image: '/assets/gifting/cr29.jpeg',
+    rating: 5,
+    tag: 'Perfect Gift',
+    color: 'bg-purple-50'
+  }
+];
+
+export const bestSellers: Product[] = [
+  products[0], // Eternal Sunflower Bouquet
+  products[1], // Aesthetic Cotton & Rose Mix
+  products[6], // Little Bear Crochet Keychain
+  products[46] // Cozy Rose Popcorn Makeup Pouch (id 47, index 46)
+];

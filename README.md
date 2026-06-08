@@ -53,7 +53,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 📬 Contact
 
-- **Email**: contact@handmadebyroshani.com
+- **Email**: roshanisrathod2007@gmail.com
 - **Instagram**: [@handmadebyroshani](https://instagram.com/handmadebyroshani)
 - **Response Time**: 24-48 hours
 

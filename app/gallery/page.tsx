@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import { ShoppingBag, ArrowRight, MessageSquare, X, Info, Palette, SlidersHorizontal, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -9,163 +10,7 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { WhatsAppWidget } from '@/components/whatsapp-widget'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-
-// Full list of aesthetic products matching requested categories
-const products = [
-  {
-    id: 1,
-    name: 'Eternal Sunflower Bouquet',
-    category: 'Flowers',
-    emoji: '🌻',
-    price: '₹799',
-    description: 'A gorgeous double-stemmed yellow sunflower arrangement with deep green leaves, beautifully wrapped in rustic craft paper and mesh. Never wilts.',
-    customizable: 'Colors of wrapping paper and petals can be customized.'
-  },
-  {
-    id: 2,
-    name: 'Aesthetic Cotton & Rose Bouquet',
-    category: 'Flowers',
-    emoji: '🌹',
-    price: '₹1,299',
-    description: 'An elegant statement bouquet blending soft white fluffy cotton pods with deep red and blush pink crochet roses. Perfect for anniversaries.',
-    customizable: 'Number of rosebuds and packaging color.'
-  },
-  {
-    id: 3,
-    name: 'Potted Crochet Lavender Plant',
-    category: 'Flowers',
-    emoji: '🪴',
-    price: '₹399',
-    description: 'A mini hand-potted lavender plant sitting in a tiny terracotta pot. Perfect addition to study tables, book shelves, or workstations.',
-    customizable: 'Pot color (beige, white, grey).'
-  },
-  {
-    id: 4,
-    name: 'Cute Smiling Avocado Keychain',
-    category: 'Crochet Keychains',
-    emoji: '🥑',
-    price: '₹199',
-    description: 'Adorable, stuffed mini avocado keychain with a friendly embroidered smile and a little brown seed heart. Includes a sturdy silver keyring.',
-    customizable: 'Available in light green or deep moss green.'
-  },
-  {
-    id: 5,
-    name: 'Handcrafted Daisy Keychain',
-    category: 'Crochet Keychains',
-    emoji: '🌼',
-    price: '₹149',
-    description: 'A simple, classic daisy flower keychain with a yellow center and white petals. Brings a touch of sunny retro charm wherever you clip it.',
-    customizable: 'Petal color (white, pink, light blue).'
-  },
-  {
-    id: 6,
-    name: 'Chubby Penguin Plush Keychain',
-    category: 'Crochet Keychains',
-    emoji: '🐧',
-    price: '₹249',
-    description: 'Knitted using extra-soft plush chenille yarn. This super squishy round penguin keychain has safety eyes and tiny orange feet.',
-    customizable: 'Yarn color (blue-grey, pink, classic navy).'
-  },
-  {
-    id: 7,
-    name: 'Tulip Pastel Hair Clip Set',
-    category: 'Hair accessories',
-    emoji: '🎀',
-    price: '₹249',
-    description: 'Set of two matching hair clips: one featuring a pastel pink tulip and another with a yellow tulip, mounted on gold-plated snap barrettes.',
-    customizable: 'Flower types (can mix daisies, tulips, or roses).'
-  },
-  {
-    id: 8,
-    name: 'Stretchable Daisy Chain Headband',
-    category: 'Hair accessories',
-    emoji: '👑',
-    price: '₹299',
-    description: 'A beautiful stretchable headband made of linked white daisies. Super soft, lightweight, and gentle on hair.',
-    customizable: 'Circumference (toddler to adult size).'
-  },
-  {
-    id: 9,
-    name: 'Rosebud Elastic Scrunchie',
-    category: 'Hair accessories',
-    emoji: '💇‍♀️',
-    price: '₹199',
-    description: 'A strong elastic hair band detailed with a crown of tiny hand-crocheted pastel pink and cream rosebuds.',
-    customizable: 'Rosebud colors.'
-  },
-  {
-    id: 10,
-    name: 'Lavender Fields Drawstring Bag',
-    category: 'Pouches',
-    emoji: '👛',
-    price: '₹399',
-    description: 'A textured knit drawstring pouch with a cream base and embroidered lavender stems. Perfect for jewelry, cosmetics, or gift wrapping.',
-    customizable: 'Base color and drawstring ribbon style.'
-  },
-  {
-    id: 11,
-    name: 'Cozy Rose Makeup Pouch',
-    category: 'Pouches',
-    emoji: '👝',
-    price: '₹599',
-    description: 'A spacious zippered pouch crocheted in a premium popcorn stitch for a bubbly texture. Features a high-quality cotton inner lining.',
-    customizable: 'Zipper color and interior fabric lining pattern.'
-  },
-  {
-    id: 12,
-    name: 'Cotton Water Bottle Sling Pouch',
-    category: 'Pouches',
-    emoji: '🥤',
-    price: '₹349',
-    description: 'A sturdy criss-cross mesh bottle holder with a comfortable shoulder strap. Stretches to fit standard reusable flasks or tumblers.',
-    customizable: 'Strap length and color block bands.'
-  },
-  {
-    id: 13,
-    name: 'Aesthetic Sunflower Coaster Set',
-    category: 'Room Decors',
-    emoji: '🏠',
-    price: '₹499',
-    description: 'Set of four sunflower-shaped coasters. Thick and highly absorbent, safeguarding your tables while adding a bright bohemian aesthetic.',
-    customizable: 'Sold in sets of 2, 4, or 6.'
-  },
-  {
-    id: 14,
-    name: 'Boho Feather Dreamcatcher',
-    category: 'Room Decors',
-    emoji: '🕸️',
-    price: '₹799',
-    description: 'A circular web frame featuring intricate lace crochet patterns at the center, adorned with hanging crochet feathers and wooden beads.',
-    customizable: 'Feather colors (sage green, beige, dusty pink mix).'
-  },
-  {
-    id: 15,
-    name: 'Aesthetic Mug Rug (Set of 2)',
-    category: 'Room Decors',
-    emoji: '☕',
-    price: '₹299',
-    description: 'Two rectangle mini carpets featuring crochet checkerboard patterns and playful fringes. Perfect cozy base for hot coffee mugs.',
-    customizable: 'Checker color combo.'
-  },
-  {
-    id: 16,
-    name: 'Custom Couple Initial Gift Box',
-    category: 'Giftings',
-    emoji: '🎁',
-    price: '₹1,499',
-    description: 'A beautifully packaged premium gifting hamper containing two custom letter keychains (initials of your choice), a mini red rose, and a lettercard.',
-    customizable: 'Initials, lettercard message, and rose color.'
-  },
-  {
-    id: 17,
-    name: 'Custom Alphabet block letter',
-    category: 'Giftings',
-    emoji: '🅰️',
-    price: '₹149',
-    description: 'Choose your alphabet! We handcraft a blocky 3D initial letter in your favorite pastel color with keyrings attached.',
-    customizable: 'Alphabet letter (A-Z) and color.'
-  }
-]
+import { products } from '@/lib/products'
 
 const categories = [
   'All',
@@ -270,15 +115,25 @@ function GalleryContent() {
             >
               {/* Product illustration container */}
               <div className="relative h-64 bg-secondary/10 hover:bg-secondary/15 flex items-center justify-center border-b border-border/40 overflow-hidden">
-                <span className="text-7xl group-hover:scale-115 transition-transform duration-500 select-none">
-                  {product.emoji}
-                </span>
+                {product.image ? (
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <span className="text-7xl group-hover:scale-115 transition-transform duration-500 select-none">
+                    {product.emoji}
+                  </span>
+                )}
                 
                 {/* Overlay details */}
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 
                 {/* Category tag */}
-                <span className="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-sm border border-border/40 rounded-full text-[10px] font-bold text-primary shadow-sm tracking-wider uppercase">
+                <span className="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-sm border border-border/40 rounded-full text-[10px] font-bold text-primary shadow-sm tracking-wider uppercase z-20">
                   {product.category}
                 </span>
               </div>
@@ -325,86 +180,99 @@ function GalleryContent() {
       {/* Quick Inquiry / View Dialog */}
       {selectedProduct && (
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogContent className="max-w-md sm:max-w-lg bg-background border border-border shadow-2xl rounded-3xl p-6 sm:p-8 overflow-hidden font-sans">
-            <DialogHeader className="space-y-3">
-              <div className="flex items-center gap-3">
-                <span className="text-4xl bg-secondary/15 p-2 rounded-2xl border border-secondary/20">
-                  {selectedProduct.emoji}
-                </span>
-                <div>
-                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider">
+          <DialogContent className="max-w-md sm:max-w-3xl bg-background border border-border shadow-2xl rounded-3xl p-6 sm:p-8 overflow-hidden font-sans">
+            <div className="grid md:grid-cols-12 gap-8 items-start">
+              
+              {/* Left Column: Image */}
+              <div className="md:col-span-5 relative aspect-square w-full rounded-2xl overflow-hidden border border-border/60 bg-secondary/10 flex items-center justify-center">
+                {selectedProduct.image ? (
+                  <Image
+                    src={selectedProduct.image}
+                    alt={selectedProduct.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 300px"
+                    className="object-cover"
+                  />
+                ) : (
+                  <span className="text-8xl select-none">{selectedProduct.emoji}</span>
+                )}
+              </div>
+
+              {/* Right Column: Product Info & Actions */}
+              <div className="md:col-span-7 space-y-4">
+                <DialogHeader className="space-y-1 text-left">
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
                     {selectedProduct.category}
                   </span>
-                  <DialogTitle className="text-2xl font-serif font-bold text-foreground mt-0.5">
+                  <DialogTitle className="text-2xl font-serif font-bold text-foreground mt-0.5 leading-snug">
                     {selectedProduct.name}
                   </DialogTitle>
-                </div>
-              </div>
-            </DialogHeader>
+                </DialogHeader>
 
-            <div className="space-y-5 mt-4">
-              <div>
-                <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Description</h4>
-                <p className="text-sm text-foreground/85 leading-relaxed mt-1 bg-card border border-border/55 p-3 rounded-2xl">
-                  {selectedProduct.description}
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide flex items-center gap-1.5">
-                  <Palette className="h-3.5 w-3.5 text-primary" />
-                  Customization Details
-                </h4>
-                <p className="text-xs text-primary font-medium mt-1 pl-5 relative">
-                  <span className="absolute left-1 top-1 w-1.5 h-1.5 bg-[#E29C91] rounded-full" />
-                  {selectedProduct.customizable}
-                </p>
-              </div>
-
-              <div className="pt-2">
-                <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide block mb-1">
-                  Specify customization requests (optional)
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Wrap in yellow mesh, make petals light pink..."
-                  value={customColor}
-                  onChange={(e) => setCustomColor(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20"
-                />
-              </div>
-
-              <div className="pt-4 border-t border-border/40 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs text-muted-foreground font-medium">Estimated Price</p>
-                  <p className="text-xl font-bold text-foreground leading-tight mt-0.5">{selectedProduct.price}</p>
+                  <h4 className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">Description</h4>
+                  <p className="text-xs text-foreground/85 leading-relaxed mt-1 bg-card border border-border/55 p-3 rounded-xl">
+                    {selectedProduct.description}
+                  </p>
                 </div>
 
-                <div className="flex gap-2">
-                  <Button 
-                    onClick={() => handleWhatsAppInquiry(selectedProduct)}
-                    className="bg-[#25D366] text-white hover:bg-[#20ba5a] rounded-full px-5 py-4 gap-1.5 font-medium shadow-sm transition-all"
-                  >
-                    <MessageSquare className="h-4.5 w-4.5 fill-current" />
-                    WhatsApp
-                  </Button>
-                  
-                  <Link href={`/#contact?item=${encodeURIComponent(selectedProduct.name)}${customColor ? `&custom=${encodeURIComponent(customColor)}` : ''}`}>
+                <div>
+                  <h4 className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide flex items-center gap-1.5">
+                    <Palette className="h-3.5 w-3.5 text-primary" />
+                    Customization Details
+                  </h4>
+                  <p className="text-xs text-primary font-medium mt-1 pl-4 relative">
+                    <span className="absolute left-0 top-1.5 w-1.5 h-1.5 bg-[#E29C91] rounded-full" />
+                    {selectedProduct.customizable}
+                  </p>
+                </div>
+
+                <div className="pt-1">
+                  <label className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide block mb-1">
+                    Specify customization requests (optional)
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Wrap in yellow mesh, make petals light pink..."
+                    value={customColor}
+                    onChange={(e) => setCustomColor(e.target.value)}
+                    className="w-full px-4 py-2 rounded-xl border border-border bg-card text-xs text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20"
+                  />
+                </div>
+
+                <div className="pt-3 border-t border-border/40 flex items-center justify-between gap-4 flex-wrap">
+                  <div>
+                    <p className="text-[10px] text-muted-foreground font-medium">Estimated Price</p>
+                    <p className="text-lg font-bold text-foreground leading-tight mt-0.5">{selectedProduct.price}</p>
+                  </div>
+
+                  <div className="flex gap-2">
                     <Button 
-                      variant="outline"
-                      onClick={() => setIsOpen(false)}
-                      className="border-border bg-white rounded-full px-5 py-4 text-foreground hover:text-primary transition-all"
+                      onClick={() => handleWhatsAppInquiry(selectedProduct)}
+                      className="bg-[#25D366] text-white hover:bg-[#20ba5a] rounded-full px-5 py-4 gap-1.5 font-medium shadow-sm transition-all text-xs"
                     >
-                      Use Form
+                      <MessageSquare className="h-4 w-4 fill-current" />
+                      WhatsApp
                     </Button>
-                  </Link>
+                    
+                    <Link href={`/#contact?item=${encodeURIComponent(selectedProduct.name)}${customColor ? `&custom=${encodeURIComponent(customColor)}` : ''}`}>
+                      <Button 
+                        variant="outline"
+                        onClick={() => setIsDialogOpen(false)}
+                        className="border-border bg-white rounded-full px-5 py-4 text-foreground hover:text-primary transition-all text-xs"
+                      >
+                        Use Form
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1.5 text-[9px] text-muted-foreground bg-muted/20 p-2.5 rounded-xl border border-border/40 mt-1">
+                  <Info className="h-3 w-3 text-primary shrink-0" />
+                  <span>Custom orders take 3-5 days to prepare and ship depending on order volume.</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground bg-muted/20 p-2.5 rounded-xl border border-border/40 mt-2">
-                <Info className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span>Custom orders take 3-5 days to prepare and ship depending on order volume.</span>
-              </div>
             </div>
           </DialogContent>
         </Dialog>
