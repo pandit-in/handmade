@@ -201,8 +201,8 @@ export default function Home() {
 
             <div className="relative w-full max-w-[420px] aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/80 group">
               <Image
-                src="/assets/bouquet.png"
-                alt="Handcrafted Crochet Flower Bouquet"
+                src="/assets/featured/hero.png"
+                alt="Featured Handcrafted Crochet Flowers"
                 fill
                 sizes="(max-width: 768px) 100vw, 420px"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
